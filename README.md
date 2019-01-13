@@ -1,4 +1,8 @@
 <p align="center">
+  A version of my Marx Backend but done with the super framework Nest JS. Better description and information will come later.
+</p>
+
+<p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
