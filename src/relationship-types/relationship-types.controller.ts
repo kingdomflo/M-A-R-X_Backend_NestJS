@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpException, HttpStatus, UseFilters } from '@nestjs/common';
 import { RelationshipTypesService } from './relationship-types.service';
 import { CreateRelationshipTypeDto } from './dto/create-relationship-type.dto';
+import { HttpExceptionFilter } from 'src/common/filter/http-exception.filter';
 
 @Controller('api/relationshipTypes')
 export class RelationshipTypesController {
