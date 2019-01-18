@@ -41,6 +41,10 @@ export class RelationshipTypesService {
     let userRelationshipType: any = new UserRelationshipTypes();
     userRelationshipType.user = user;
     userRelationshipType.relationshipType = relationshipType;
+    let tmp = await this.usersRelationshipTypesRepo.findOne({where : {user : user, relationshipType : relationshipType}});
+    if(tmp != null) {
+      throw new ConflictException('You already have this relationship type');
+    }
     return this.usersRelationshipTypesRepo.save(userRelationshipType);
   }
 
