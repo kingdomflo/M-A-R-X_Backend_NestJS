@@ -10,6 +10,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = exception.getStatus();
     const errorMessage: any = exception.getResponse();
 
+
     let message: Array<String> = new Array<String>();
 
     if (status == 404) {
@@ -21,11 +22,17 @@ export class HttpExceptionFilter implements ExceptionFilter {
           message.push(tmpList[ele]);
         }
       });
+    } else if (status == 401) {
+      message.push("You aren't authorized to access here");
     } else if (status == 500) {
       message.push('Internal server error');
     } else {
       console.log(errorMessage);
-      message.push('Error, contact the developpement team');
+      if(errorMessage.message != null) {
+        message.push(errorMessage.message);
+      } else {
+        message.push('Error, contact the developpement team');
+      }
     }
 
     response.status(status).json({

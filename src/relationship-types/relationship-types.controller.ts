@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, HttpException, HttpStatus, UseFilters } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpException, HttpStatus, UseFilters, Req } from '@nestjs/common';
 import { RelationshipTypesService } from './relationship-types.service';
 import { CreateRelationshipTypeDto } from './dto/create-relationship-type.dto';
 import { HttpExceptionFilter } from 'src/common/filter/http-exception.filter';
@@ -15,6 +15,7 @@ export class RelationshipTypesController {
 
   @Post()
   create(@Body() createRelationshipTypeDto: CreateRelationshipTypeDto) {
-    return this.relationshipTypesService.create(createRelationshipTypeDto);
+    return this.relationshipTypesService.createFromUser(createRelationshipTypeDto);
+    // return this.relationshipTypesService.create(createRelationshipTypeDto);
   }
 }

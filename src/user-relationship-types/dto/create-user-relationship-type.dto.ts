@@ -8,9 +8,12 @@ import {
   IsDate,
   Min,
   Max,
+  IsNotEmpty,
 } from 'class-validator';
 
 export class CreateUserRelationshipTypeDto {
+  @IsNotEmpty()
   readonly relationshipTypeId: number;
+  @IsNotEmpty()
   readonly userId: number;
 }

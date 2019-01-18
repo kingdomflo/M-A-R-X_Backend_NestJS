@@ -13,6 +13,8 @@ import {
 
 export class CreateRelationshipTypeDto {
   @IsNotEmpty()
-  @Length(1, 10)
+  @Length(1, 50)
   readonly name: string;
+
+  readonly tokenUserId: number;
 }
