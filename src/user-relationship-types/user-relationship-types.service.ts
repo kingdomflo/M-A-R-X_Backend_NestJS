@@ -45,10 +45,9 @@ export class UserRelationshipTypesService {
   }
 
   async findAllByUser(id: number): Promise<UserRelationshipTypes[]> {
-    const user = await this.usersRepo.findOne(id);
     return this.repository.find({
       relations: ['user', 'relationshipType'],
-      where: { user: user },
+      where: { user: {id: id} },
     });
   }
 }
