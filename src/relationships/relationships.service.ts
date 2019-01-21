@@ -28,7 +28,19 @@ export class RelationshipsService {
     //     'userRelationshipType.user',
     //     'userRelationshipType.relationshipType',
     //   ],
-    //   where: { userRelationshipType: { user: { id: id } } },
+    //   join: {
+    //     alias: "relationship",
+    //     innerJoinAndSelect: {
+    //       userRelationshipType: "relationship.userRelationshipType",
+    //       user: "userRelationshipType.user",
+    //       relationshipType: "userRelationshipType.relationshipType"
+    //     }
+    //   },
+    //   where: {
+    //     userRelationshipType: {
+    //       user: { id: id },
+    //     },
+    //   },
     // });
 
     return this.repo
