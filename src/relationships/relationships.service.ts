@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ConflictException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Relationships } from './relationships.entity';
@@ -55,7 +55,14 @@ export class RelationshipsService {
   ): Promise<Relationships> {
     const userRelationshipType = await this.userRelationshipTypesRepo.findOne(
       createRelationshipDto.userRelationshipTypeId,
+      {
+        where: { user: { id: createRelationshipDto.tokenUserId } },
+      },
     );
+    console.log(userRelationshipType);
+    if (userRelationshipType == null) {
+      throw new ConflictException("This relationship type don't exist");
+    }
     const relationship = new Relationships();
     relationship.name = createRelationshipDto.name;
     relationship.userRelationshipType = userRelationshipType;
