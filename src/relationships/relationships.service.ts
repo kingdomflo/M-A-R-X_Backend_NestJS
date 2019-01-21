@@ -59,7 +59,6 @@ export class RelationshipsService {
         where: { user: { id: createRelationshipDto.tokenUserId } },
       },
     );
-    console.log(userRelationshipType);
     if (userRelationshipType == null) {
       throw new ConflictException("This relationship type don't exist");
     }
