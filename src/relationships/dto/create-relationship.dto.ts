@@ -21,5 +21,6 @@ export class CreateRelationshipDto {
   @Validate(IsNotWhiteSpace)
   readonly name: string;
   readonly userRelationshipTypeId: number;
+  @IsNotEmpty()
   readonly tokenUserId: number;
 }
