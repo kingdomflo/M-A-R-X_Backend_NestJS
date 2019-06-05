@@ -17,7 +17,11 @@ export class RelationshipsService {
     private readonly userRelationshipTypesRepo: Repository<
       UserRelationshipTypes
     >,
-  ) {}
+  ) { }
+
+  async findOne(id: number): Promise<Relationships> {
+    return this.repo.findOne(id, { relations: ['userRelationshipType', 'userRelationshipType.user', 'userRelationshipType.relationshipType'] });
+  }
 
   async findAllByUser(id: number): Promise<Relationships[]> {
     // TODO do that with real ORM
