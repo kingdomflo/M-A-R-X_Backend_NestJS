@@ -20,7 +20,7 @@ export class RelationshipsService {
   ) { }
 
   async findOne(id: number): Promise<Relationships> {
-    return this.repo.findOne(id, { relations: ['userRelationshipType', 'userRelationshipType.user', 'userRelationshipType.relationshipType'] });
+    return this.repo.findOneOrFail(id, { relations: ['userRelationshipType', 'userRelationshipType.user', 'userRelationshipType.relationshipType'] });
   }
 
   async findAllByUser(id: number): Promise<Relationships[]> {
