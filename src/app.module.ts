@@ -15,24 +15,24 @@ import { RelationshipsController } from './relationships/relationships.controlle
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'test',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-      logging: true,
-    }),
     // TypeOrmModule.forRoot({
-    //   type: 'mysql',
+    //   type: 'sqlite',
     //   database: 'test',
-    //   host: '35.205.150.112',
-    //   port: 3306,
-    //   username: 'root',
-    //   password: 'f1661g',
     //   entities: [__dirname + '/**/*.entity{.ts,.js}'],
     //   synchronize: true,
     //   logging: true,
     // }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      database: 'test',
+      host: '127.0.0.1',
+      port: 3306,
+      username: 'root',
+      password: '',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+      logging: true,
+    }),
     UsersModule,
     RelationshipTypesModule,
     UserRelationshipTypesModule,
