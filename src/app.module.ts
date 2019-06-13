@@ -16,16 +16,23 @@ import { RelationshipsController } from './relationships/relationships.controlle
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      username: 'root',
-      password: '',
+      type: 'sqlite',
       database: 'test',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-     logging: true
+      logging: true,
     }),
+    // TypeOrmModule.forRoot({
+    //   type: 'mysql',
+    //   database: 'test',
+    //   host: '35.205.150.112',
+    //   port: 3306,
+    //   username: 'root',
+    //   password: 'f1661g',
+    //   entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    //   synchronize: true,
+    //   logging: true,
+    // }),
     UsersModule,
     RelationshipTypesModule,
     UserRelationshipTypesModule,
@@ -35,7 +42,7 @@ import { RelationshipsController } from './relationships/relationships.controlle
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private readonly connection: Connection) {}
+  constructor(private readonly connection: Connection) { }
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(LoggerMiddleware)

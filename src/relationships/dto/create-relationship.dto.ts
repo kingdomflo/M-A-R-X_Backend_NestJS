@@ -12,13 +12,13 @@ import {
   IsString,
   Validate,
 } from 'class-validator';
-import { IsNotWhiteSpace } from 'src/common/validator/IsNotWhiteSpace.pipe';
+// import { IsNotWhiteSpace } from 'src/common/validator/IsNotWhiteSpace.pipe';
 
 export class CreateRelationshipDto {
   @IsNotEmpty()
   @Length(1, 50)
   @IsString()
-  @Validate(IsNotWhiteSpace)
+  // @Validate(IsNotWhiteSpace)
   readonly name: string;
   readonly userRelationshipTypeId: number;
   @IsNotEmpty()
