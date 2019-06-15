@@ -17,7 +17,7 @@ import { RelationshipsController } from './relationships/relationships.controlle
   imports: [
     // TypeOrmModule.forRoot({
     //   type: 'sqlite',
-    //   database: 'test',
+    //   database: 'test.sqlite',
     //   entities: [__dirname + '/**/*.entity{.ts,.js}'],
     //   synchronize: true,
     //   logging: true,
