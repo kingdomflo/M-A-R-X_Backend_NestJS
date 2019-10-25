@@ -1,5 +1,6 @@
 <p align="center">
-  A version of my Marx Backend but done with the super framework Nest JS. Better description and information will come later.
+  A version of my Marx Backend but done with the super framework Nest JS.
+  It was juste for the test, a POC, I will not finish this project. See the PHP Project for that
 </p>
 
 <p align="center">
